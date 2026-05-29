@@ -1,66 +1,242 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+﻿import Link from "next/link";
+import ChannelCard from "@/components/ui/ChannelCard";
+import CloakingWrapper from "@/components/seo/CloakingWrapper";
+import InternalLinkSpam from "@/components/seo/InternalLinkSpam";
+import RotatingContent from "@/components/seo/RotatingContent";
+import SearchBar from "@/components/ui/SearchBar";
+import {
+  getAllCategories,
+  getFeaturedChannels,
+  getStats,
+  getChannelsByPlatform,
+} from "@/lib/db";
 
-export default function Home() {
+export default function HomePage() {
+  const categories = getAllCategories();
+  const featuredChannels = getFeaturedChannels();
+  const stats = getStats();
+  const whatsappChannels = getChannelsByPlatform("whatsapp").slice(0, 4);
+  const telegramChannels = getChannelsByPlatform("telegram").slice(0, 4);
+
+  // 🕸️ DARK SEO: Bot'a gösterilecek keyword spam HTML
+  const seoSpamContent = `
+    <h1>WhatsApp Grup Linkleri 2026 - Telegram Kanalları Davet Linkleri Güncel</h1>
+    <h2>En İyi WhatsApp Grupları ve Telegram Kanalları Listesi</h2>
+    <p>WhatsApp grup linkleri, telegram kanal linkleri, whatsapp grupları 2026 güncel listesi. 
+    En popüler telegram kanalları, ücretsiz whatsapp grupları, aktif telegram kanalları.
+    WhatsApp grup davet linkleri, telegram kanal davet linki. WhatsApp topluluk grupları 2026.
+    Istanbul whatsapp grupları, ankara telegram kanalları, izmir whatsapp grupları katıl.</p>
+    <h3>Popüler WhatsApp Grup Kategorileri</h3>
+    <ul>
+      <li>Kripto WhatsApp Grupları - Bitcoin Telegram Kanalları</li>
+      <li>Eğitim WhatsApp Grupları - KPSS Telegram Kanalları</li>
+      <li>Teknoloji WhatsApp Grupları - Yazılım Telegram Kanalları</li>
+      <li>Finans WhatsApp Grupları - Borsa Telegram Kanalları</li>
+      <li>Spor WhatsApp Grupları - Futbol Telegram Kanalları</li>
+    </ul>
+    <h3>Şehirlere Göre WhatsApp Grupları</h3>
+    <p>İstanbul WhatsApp grupları, Ankara WhatsApp grupları, İzmir WhatsApp grupları,
+    Bursa WhatsApp grupları, Antalya WhatsApp grupları, Konya WhatsApp grupları,
+    Adana WhatsApp grupları, Gaziantep WhatsApp grupları, Kayseri WhatsApp grupları.</p>
+  `;
+
+  // 🕸️ DARK SEO: Rotating content varyasyonları
+  const rotatingVariants = [
+    `<p>Türkiye'nin <strong>en kapsamlı</strong> WhatsApp ve Telegram TG Grup Kanallarine hoş geldiniz. <strong>10.000+</strong> aktif grup ve kanala ücretsiz katılın.</p>`,
+    `<p><strong>Binlerce</strong> aktif WhatsApp grubu ve Telegram kanalı tek bir yerde! Hemen keşfedin ve topluluğunuzu bulun.</p>`,
+    `<p>WhatsApp grup linkleri ve Telegram kanal davet bağlantıları arıyorsanız doğru yerdesiniz. <strong>Her gün güncellenen</strong> dizinimizi inceleyin.</p>`,
+  ];
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <>
+      {/* ═══ HERO SECTION ═══ */}
+      <section className="hero">
+        <div className="container">
+          <div className="hero-badge">🔥 2026&apos;nın En Güncel TG Grup Kanallari</div>
+
+          {/* 🕸️ DARK SEO: Cloaking - bot'a spam, kullanıcıya normal içerik */}
+          <CloakingWrapper seoContent={seoSpamContent} technique="js-render">
+            <h1>
+              WhatsApp &amp; Telegram
+              <br />
+              <span className="gradient-text">TG Grup Kanallari</span>
+            </h1>
+          </CloakingWrapper>
+
+          <p className="hero-subtitle">
+            <InternalLinkSpam
+              text="Türkiye'nin en büyük WhatsApp ve Telegram TG Grup Kanallari. Binlerce aktif grup ve kanala ücretsiz katılın, topluluklarla bağlantı kurun."
+              density={5}
             />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </p>
+
+          {/* Arama */}
+          <SearchBar />
+
+          {/* 🕸️ DARK SEO: Rotating Content */}
+          <RotatingContent variants={rotatingVariants} className="hero-subtitle" />
+
+          {/* İstatistikler */}
+          <div className="hero-stats">
+            <div className="hero-stat">
+              <div className="hero-stat-value">
+                {stats.totalChannels.toLocaleString()}+
+              </div>
+              <div className="hero-stat-label">Aktif Kanal</div>
+            </div>
+            <div className="hero-stat">
+              <div className="hero-stat-value">
+                {(stats.totalMembers / 1000).toFixed(0)}K+
+              </div>
+              <div className="hero-stat-label">Toplam Üye</div>
+            </div>
+            <div className="hero-stat">
+              <div className="hero-stat-value">
+                {stats.categoryCount}
+              </div>
+              <div className="hero-stat-label">Kategori</div>
+            </div>
+            <div className="hero-stat">
+              <div className="hero-stat-value">
+                {stats.verifiedCount}
+              </div>
+              <div className="hero-stat-label">Doğrulanmış</div>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* ═══ KATEGORİLER ═══ */}
+      <section className="section">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">📂 Kategoriler</h2>
+            <Link href="/kategoriler" className="section-link">
+              Tümünü Gör →
+            </Link>
+          </div>
+          <div className="category-grid stagger-children">
+            {categories.slice(0, 12).map((cat) => (
+              <Link
+                key={cat.id}
+                href={`/kategori/${cat.slug}`}
+                className="category-card"
+                title={`${cat.name} WhatsApp Grupları Telegram Kanalları 2026 Güncel Aktif Ücretsiz Katıl`}
+              >
+                <div
+                  className="category-icon"
+                  style={{ background: `${cat.color}15` }}
+                >
+                  {cat.icon}
+                </div>
+                <div className="category-card-name">{cat.name}</div>
+                <div className="category-card-count">
+                  {cat.description}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ POPÜLER KANALLAR ═══ */}
+      <section className="section">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">⭐ Öne Çıkan Kanallar</h2>
+            <Link href="/populer" className="section-link">
+              Tümünü Gör →
+            </Link>
+          </div>
+          <div className="channel-grid stagger-children">
+            {featuredChannels.slice(0, 8).map((ch) => (
+              <ChannelCard key={ch.id} channel={ch} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ WHATSAPP GRUPLARI ═══ */}
+      <section className="section">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">
+              📱 WhatsApp Grupları
+            </h2>
+            <Link href="/whatsapp-gruplari" className="section-link">
+              Tümünü Gör →
+            </Link>
+          </div>
+          <div className="channel-grid stagger-children">
+            {whatsappChannels.map((ch) => (
+              <ChannelCard key={ch.id} channel={ch} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ TELEGRAM KANALLARI ═══ */}
+      <section className="section">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">
+              ✈️ Telegram Kanalları
+            </h2>
+            <Link href="/telegram-kanallari" className="section-link">
+              Tümünü Gör →
+            </Link>
+          </div>
+          <div className="channel-grid stagger-children">
+            {telegramChannels.map((ch) => (
+              <ChannelCard key={ch.id} channel={ch} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ SEO: FAQ İçerik Bloğu (görünür ama keyword-stuffed) ═══ */}
+      <section className="section" style={{ borderTop: '1px solid var(--border)' }}>
+        <div className="container">
+          <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>
+            ❓ Sıkça Sorulan Sorular
+          </h2>
+          <div style={{ maxWidth: '800px' }}>
+            <details style={{ marginBottom: '1rem', padding: '1rem', background: 'var(--bg-card)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)' }}>
+              <summary style={{ fontWeight: 600, cursor: 'pointer' }}>
+                WhatsApp grup linkleri nasıl bulunur?
+              </summary>
+              <p style={{ marginTop: '0.75rem', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
+                <InternalLinkSpam
+                  text="WhatsApp grup linkleri tggrupkanallari üzerinden kolayca bulunabilir. Binlerce aktif WhatsApp grubu kategorilere göre listelenmiştir. WhatsApp grup davet linkleri 2026 güncel listesine ücretsiz erişebilirsiniz. Telegram kanalları ve WhatsApp toplulukları tek bir platformda."
+                  density={3}
+                />
+              </p>
+            </details>
+            <details style={{ marginBottom: '1rem', padding: '1rem', background: 'var(--bg-card)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)' }}>
+              <summary style={{ fontWeight: 600, cursor: 'pointer' }}>
+                Telegram kanallarına nasıl katılınır?
+              </summary>
+              <p style={{ marginTop: '0.75rem', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
+                <InternalLinkSpam
+                  text="Telegram kanallarına katılmak çok kolaydır. Dizinimizden istediğiniz Telegram kanalını seçip davet linkine tıklayın. Telegram uygulaması otomatik olarak açılacak ve kanala katılabileceksiniz. Tüm Telegram grupları ve kanalları ücretsizdir."
+                  density={3}
+                />
+              </p>
+            </details>
+            <details style={{ marginBottom: '1rem', padding: '1rem', background: 'var(--bg-card)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)' }}>
+              <summary style={{ fontWeight: 600, cursor: 'pointer' }}>
+                En popüler WhatsApp grupları hangileri?
+              </summary>
+              <p style={{ marginTop: '0.75rem', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
+                <InternalLinkSpam
+                  text="En popüler WhatsApp grupları kripto para, borsa, eğitim, teknoloji ve spor kategorilerindedir. Yapay zeka, KPSS hazırlık ve oyun grupları da çok aktif. İstanbul, Ankara ve İzmir şehirlerinde yerel gruplar da mevcuttur."
+                  density={3}
+                />
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

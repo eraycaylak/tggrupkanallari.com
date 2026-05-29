@@ -1,0 +1,21 @@
+[
+  { "id": "teknoloji", "name": "Teknoloji", "slug": "teknoloji", "icon": "💻", "description": "Yazılım, yapay zeka, siber güvenlik ve teknoloji dünyası", "color": "#6366f1" },
+  { "id": "finans", "name": "Finans & Yatırım", "slug": "finans", "icon": "💰", "description": "Borsa, kripto, döviz ve yatırım kanalları", "color": "#f59e0b" },
+  { "id": "egitim", "name": "Eğitim", "slug": "egitim", "icon": "📚", "description": "Sınav hazırlık, dil öğrenme ve akademik gruplar", "color": "#10b981" },
+  { "id": "saglik", "name": "Sağlık", "slug": "saglik", "icon": "🏥", "description": "Sağlıklı yaşam, tıp ve wellness", "color": "#ef4444" },
+  { "id": "eglence", "name": "Eğlence", "slug": "eglence", "icon": "🎬", "description": "Dizi, film, anime ve eğlence kanalları", "color": "#8b5cf6" },
+  { "id": "is-kariyer", "name": "İş & Kariyer", "slug": "is-kariyer", "icon": "💼", "description": "Freelance, startup ve kariyer fırsatları", "color": "#3b82f6" },
+  { "id": "spor", "name": "Spor", "slug": "spor", "icon": "⚽", "description": "Futbol, basketbol ve spor tahminleri", "color": "#22c55e" },
+  { "id": "yemek", "name": "Yemek & Tarif", "slug": "yemek", "icon": "🍽️", "description": "Yemek tarifleri ve mutfak kültürü", "color": "#f97316" },
+  { "id": "seyahat", "name": "Seyahat & Gezi", "slug": "seyahat", "icon": "✈️", "description": "Tatil, gezi rotaları ve kamp", "color": "#06b6d4" },
+  { "id": "otomotiv", "name": "Otomotiv", "slug": "otomotiv", "icon": "🚗", "description": "Araba, motosiklet ve araç dünyası", "color": "#64748b" },
+  { "id": "sanat", "name": "Sanat & Tasarım", "slug": "sanat", "icon": "🎨", "description": "Fotoğrafçılık, grafik tasarım ve el sanatları", "color": "#ec4899" },
+  { "id": "muzik", "name": "Müzik", "slug": "muzik", "icon": "🎵", "description": "Müzik üretim, rap ve sanat müziği", "color": "#a855f7" },
+  { "id": "emlak", "name": "Emlak", "slug": "emlak", "icon": "🏠", "description": "Gayrimenkul, kiralık ve satılık ilanlar", "color": "#14b8a6" },
+  { "id": "oyun", "name": "Oyun & Gaming", "slug": "oyun", "icon": "🎮", "description": "PC, konsol oyunları ve esports", "color": "#7c3aed" },
+  { "id": "hayvan", "name": "Hayvanlar", "slug": "hayvan", "icon": "🐾", "description": "Evcil hayvan bakımı ve sahiplendirme", "color": "#d97706" },
+  { "id": "aile", "name": "Aile & Çocuk", "slug": "aile", "icon": "👨‍👩‍👧", "description": "Anne-baba, bebek bakımı ve çocuk gelişimi", "color": "#e11d48" },
+  { "id": "yasam", "name": "Yaşam & Stil", "slug": "yasam", "icon": "✨", "description": "Moda, dekorasyon ve yaşam tarzı", "color": "#c084fc" },
+  { "id": "cevre", "name": "Çevre", "slug": "cevre", "icon": "🌿", "description": "Sürdürülebilir yaşam ve çevre bilinci", "color": "#16a34a" },
+  { "id": "tarim", "name": "Tarım", "slug": "tarim", "icon": "🌾", "description": "Tarım, çiftçilik ve organik üretim", "color": "#65a30d" }
+]

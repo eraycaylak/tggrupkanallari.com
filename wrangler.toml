@@ -1,0 +1,16 @@
+# ═══════════════════════════════════════════════
+# TGGrupKanallari — Cloudflare Pages Konfigürasyonu
+# ═══════════════════════════════════════════════
+
+name = "tggrupkanallari"
+pages_build_output_dir = ".open-next/assets"
+compatibility_date = "2026-05-01"
+compatibility_flags = ["nodejs_compat"]
+
+# ── Hesap Bilgileri ──
+account_id = "bc50d113e2073d29807db3ed103ddde0"
+
+# ── Environment ──
+[vars]
+SITE_URL = "https://tggrupkanallari.com"
+ENVIRONMENT = "production"

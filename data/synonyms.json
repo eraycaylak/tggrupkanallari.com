@@ -1,0 +1,22 @@
+{
+  "grup": ["topluluk", "cemaat", "birlik", "platform", "ağ", "çevre", "ekip", "takım"],
+  "kanal": ["yayın", "platform", "sayfa", "hesap", "medya", "kaynak"],
+  "katıl": ["üye ol", "dahil ol", "bağlan", "eklen", "kayıt ol", "gir"],
+  "link": ["bağlantı", "davet", "adres", "url", "yönlendirme"],
+  "ücretsiz": ["bedava", "parasız", "sıfır maliyetle", "herhangi bir ücret ödemeden", "tamamen ücretsiz"],
+  "en iyi": ["en kaliteli", "en popüler", "birinci sınıf", "en beğenilen", "en çok tercih edilen"],
+  "güncel": ["yeni", "son", "taze", "aktüel", "bugünkü", "en son güncellenen"],
+  "popüler": ["trend", "revaçta", "gözde", "beğenilen", "aranan", "çok tercih edilen"],
+  "aktif": ["canlı", "işleyen", "hareketli", "dinamik", "yaşayan"],
+  "bul": ["keşfet", "ara", "incele", "gözat", "tara"],
+  "paylaş": ["yayınla", "gönder", "ilet", "aktar", "duyur"],
+  "takip et": ["izle", "gözlemle", "abone ol", "bağlantıda kal"],
+  "öner": ["tavsiye et", "yönlendir", "sun", "belirt"],
+  "liste": ["dizin", "rehber", "katalog", "tablo", "index", "arşiv", "koleksiyon"],
+  "büyük": ["geniş", "kapsamlı", "devasa", "kocaman", "görkemli"],
+  "hızlı": ["çabuk", "süratli", "anında", "derhal", "vakit kaybetmeden"],
+  "kolay": ["basit", "zahmetsiz", "pratik", "sorunsuz", "pürüzsüz"],
+  "güvenilir": ["sağlam", "emin", "itimatlı", "doğrulanmış", "onaylı"],
+  "Türkiye": ["Türkiye geneli", "tüm Türkiye", "yurt geneli", "ülke çapında"],
+  "keşfet": ["bul", "ara", "incele", "gözat", "tara", "deneyimle"]
+}
