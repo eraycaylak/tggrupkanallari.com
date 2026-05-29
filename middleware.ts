@@ -33,9 +33,9 @@ export function middleware(request: NextRequest) {
   const response = NextResponse.next();
 
   // 🕸️ Cookie-based cloaking: İlk ziyarette cookie set et
-  const visitCookie = request.cookies.get('kd_visit');
+  const visitCookie = request.cookies.get('tg_visit');
   if (!visitCookie) {
-    response.cookies.set('kd_visit', '1', {
+    response.cookies.set('tg_visit', '1', {
       maxAge: 60 * 60 * 24 * 30, // 30 gün
       path: '/',
       httpOnly: true,

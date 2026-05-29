@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "cf-build": "npx @opennextjs/cloudflare build",
-    "deploy": "npm run cf-build && npx wrangler pages deploy .open-next/assets --project-name=tggrupkanallari",
+    "cf-build": "node scripts/prepare-deploy.js",
+    "deploy": "npm run cf-build && npx wrangler pages deploy .open-next --project-name=tggrupkanallari",
     "deploy:worker": "npx wrangler deploy"
   },
   "dependencies": {
