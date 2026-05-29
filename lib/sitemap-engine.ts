@@ -1,4 +1,4 @@
-﻿/**
+/**
  * 🕸️ DARK SEO: Sitemap Engine
  * 
  * Mega-sitemap üretim motoru.
@@ -14,6 +14,7 @@
  */
 
 import { getAllChannels, getAllCategories, slugify } from '@/lib/db';
+import { getUnlockedArticles } from '@/lib/blog';
 import citiesData from '@/data/cities.json';
 import ghostPagesData from '@/data/ghost-pages.json';
 
@@ -50,6 +51,17 @@ export function generateAllUrls(): SitemapEntry[] {
   urls.push({ loc: '/whatsapp-gruplari', lastmod: now, changefreq: 'hourly', priority: '1.0' });
   urls.push({ loc: '/telegram-kanallari', lastmod: now, changefreq: 'hourly', priority: '1.0' });
   urls.push({ loc: '/kategoriler', lastmod: now, changefreq: 'daily', priority: '0.9' });
+  urls.push({ loc: '/makaleler', lastmod: now, changefreq: 'daily', priority: '0.9' });
+
+  // ── Blog Makale Sayfaları ──
+  for (const art of getUnlockedArticles()) {
+    urls.push({
+      loc: `/makale/${art.slug}`,
+      lastmod: now,
+      changefreq: 'weekly',
+      priority: '0.8',
+    });
+  }
 
   // ── Kanal Sayfaları ──
   for (const ch of getAllChannels()) {

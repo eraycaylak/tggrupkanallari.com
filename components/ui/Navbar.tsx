@@ -34,6 +34,7 @@ export default function Navbar() {
           <Link href="/telegram-kpss-kanallari" title="Telegram KPSS Kanalları">📚 KPSS</Link>
           <Link href="/telegram-oyun-kanallari" title="Telegram Oyun APK Kanalları">🎮 Oyun</Link>
           <Link href="/kategoriler">Kategoriler</Link>
+          <Link href="/makaleler" title="Sosyal Medya Makaleleri ve SEO Rehberleri">📰 Makaleler</Link>
           <Link href="https://t.me/destektgkanalicom" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--warning)', fontWeight: 600 }} title="Reklam & Tanıtım İşbirlikleri">📢 Reklam</Link>
           <Link href="/iletisim">📬 İletişim</Link>
           <Link href="/kanal-ekle" className="navbar-cta" style={{ marginLeft: '0.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>➕ Kanal Ekle</Link>

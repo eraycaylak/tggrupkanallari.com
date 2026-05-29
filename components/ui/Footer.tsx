@@ -54,6 +54,7 @@ export default function Footer() {
             <Link href="/iletisim">İletişim</Link>
             <Link href="/gizlilik">Gizlilik Politikası</Link>
             <Link href="/sss">Sıkça Sorulan Sorular</Link>
+            <Link href="/makaleler">📰 Makaleler &amp; Blog</Link>
           </div>
         </div>
 

@@ -3,6 +3,8 @@ name: Deploy to Cloudflare Pages
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: '0 3 * * *' # Her gün saat 03:00 UTC'de otomatik derle/deploy et
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true

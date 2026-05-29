@@ -38,9 +38,28 @@ export interface Category {
   color: string;
 }
 
+function getDeterministicFluctuation(channelId: string): number {
+  const dateStr = new Date().toISOString().split('T')[0];
+  let hash = 0;
+  const str = dateStr + channelId;
+  for (let i = 0; i < str.length; i++) {
+    hash = (hash << 5) - hash + str.charCodeAt(i);
+    hash |= 0;
+  }
+  // Generates between -1.5% and +2.5% variation
+  return ((Math.abs(hash) % 40) - 15) / 1000;
+}
+
 // --- Channel Operations ---
 export function getAllChannels(): Channel[] {
-  return channelsData as Channel[];
+  return (channelsData as Channel[]).map(ch => {
+    const variance = getDeterministicFluctuation(ch.id);
+    const fluctuatedCount = Math.max(10, Math.floor(ch.memberCount * (1 + variance)));
+    return {
+      ...ch,
+      memberCount: fluctuatedCount
+    };
+  });
 }
 
 export function getChannelBySlug(slug: string, includeUnverified: boolean = false): Channel | undefined {
