@@ -10,17 +10,47 @@
 import { NextRequest } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import initialChannels from '@/data/channels.json';
+
+// Global state for serverless in-memory persistence
+declare global {
+  var __channels_db: any[] | undefined;
+}
+
+if (!globalThis.__channels_db) {
+  globalThis.__channels_db = initialChannels;
+}
 
 const DATA_PATH = path.join(process.cwd(), 'data', 'channels.json');
 
-function readChannels() {
-  const raw = fs.readFileSync(DATA_PATH, 'utf-8');
-  return JSON.parse(raw);
+function readChannels(): any[] {
+  // If we are running locally in development, read from filesystem to stay in sync
+  if (process.env.NODE_ENV === 'development') {
+    try {
+      if (fs.existsSync(DATA_PATH)) {
+        const raw = fs.readFileSync(DATA_PATH, 'utf-8');
+        globalThis.__channels_db = JSON.parse(raw);
+      }
+    } catch (e) {
+      console.error('Local read error, falling back to memory:', e);
+    }
+  }
+  return globalThis.__channels_db || [];
 }
 
 function writeChannels(channels: Record<string, unknown>[]) {
-  fs.writeFileSync(DATA_PATH, JSON.stringify(channels, null, 2), 'utf-8');
+  globalThis.__channels_db = channels;
+  
+  // If we are running locally in development, persist to filesystem
+  if (process.env.NODE_ENV === 'development') {
+    try {
+      fs.writeFileSync(DATA_PATH, JSON.stringify(channels, null, 2), 'utf-8');
+    } catch (e) {
+      console.error('Local write error:', e);
+    }
+  }
 }
+
 
 function slugify(text: string): string {
   return text
