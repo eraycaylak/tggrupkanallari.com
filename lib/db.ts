@@ -1,5 +1,17 @@
-import channelsData from '@/data/channels.json';
+import initialChannelsData from '@/data/channels.json';
 import categoriesData from '@/data/categories.json';
+
+// Global state for serverless in-memory persistence
+declare global {
+  var __channels_db: any[] | undefined;
+}
+
+if (!globalThis.__channels_db) {
+  globalThis.__channels_db = initialChannelsData;
+}
+
+// Dynamically reference global memory
+const channelsData = globalThis.__channels_db;
 
 export interface Channel {
   id: string;

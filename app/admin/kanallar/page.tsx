@@ -36,7 +36,7 @@ export default function AdminKanallar() {
   const categories = [
     'teknoloji', 'finans', 'egitim', 'saglik', 'spor', 'muzik',
     'sanat', 'yemek', 'seyahat', 'oyun', 'bilim', 'haber',
-    'alisveris', 'kariyer', 'aile', 'otomotiv', 'emlak', 'kripto', 'diger',
+    'alisveris', 'is-kariyer', 'aile', 'otomotiv', 'emlak', 'kripto', 'ifsa', 'yetiskin', 'diger',
   ];
 
   useEffect(() => {

@@ -748,5 +748,35 @@
     "verified": true,
     "createdAt": "2024-02-28",
     "city": "istanbul"
+  },
+  {
+    "id": "ch051",
+    "name": "Türk İfşa Arşivi 2026",
+    "slug": "turk-ifsa-arsivi-2026",
+    "platform": "telegram",
+    "category": "ifsa",
+    "description": "En aktif ve güncel Türk ifşa Telegram kanalı. Günlük paylaşımlar ve davet linkleri.",
+    "memberCount": 85400,
+    "link": "https://t.me/turkifsaarsivi2026",
+    "tags": ["ifşa", "türk ifşa", "adult", "arşiv", "+18"],
+    "featured": true,
+    "verified": true,
+    "createdAt": "2026-01-10",
+    "city": "istanbul"
+  },
+  {
+    "id": "ch052",
+    "name": "Global Adult Link Paylaşım",
+    "slug": "global-adult-link-paylasim",
+    "platform": "telegram",
+    "category": "yetiskin",
+    "description": "En iyi Telegram yetişkin ve ifşa kanalları davet linkleri paylaşım grubu.",
+    "memberCount": 42100,
+    "link": "https://t.me/globaladultlinks",
+    "tags": ["ifşa", "adult", "yetişkin", "linkler", "+18"],
+    "featured": false,
+    "verified": true,
+    "createdAt": "2026-02-15",
+    "city": "ankara"
   }
 ]
