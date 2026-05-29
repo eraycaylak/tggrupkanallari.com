@@ -56,7 +56,28 @@ try {
     console.warn('UYARI: .open-next/assets klasörü bulunamadı!');
   }
 
+  // 4. Cloudflare Pages için _routes.json oluştur (Statik dosyaların Worker'ı bypass etmesi için)
+  const routesJsonPath = path.join(openNextDir, '_routes.json');
+  console.log('4. Cloudflare Pages için _routes.json dosyası oluşturuluyor...');
+  const routesConfig = {
+    version: 1,
+    include: ['/*'],
+    exclude: [
+      '/_next/static/*',
+      '/favicon.ico',
+      '/file.svg',
+      '/globe.svg',
+      '/next.svg',
+      '/og-image.png',
+      '/vercel.svg',
+      '/window.svg'
+    ]
+  };
+  fs.writeFileSync(routesJsonPath, JSON.stringify(routesConfig, null, 2), 'utf-8');
+  console.log('_routes.json başarıyla oluşturuldu.');
+
   console.log('\nHazırlık tamamlandı! Artık "npx wrangler pages deploy .open-next" komutunu çalıştırabilirsiniz.');
+
 } catch (error) {
   console.error('Hata oluştu:', error);
   process.exit(1);
