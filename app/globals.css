@@ -1236,3 +1236,16 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* --- Kanal Ekle Page Responsive Rules --- */
+@media (max-width: 968px) {
+  .kanal-ekle-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .advertising-sidebar {
+    position: relative !important;
+    top: 0 !important;
+    margin-top: 1rem;
+  }
+}
+

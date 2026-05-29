@@ -1,4 +1,4 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
 import { getAllCategories } from '@/lib/db';
 import FooterLinkFarm from '@/components/seo/FooterLinkFarm';
 
@@ -13,13 +13,21 @@ export default function Footer() {
           <div className="footer-brand">
             <Link href="/" className="navbar-logo" style={{ marginBottom: '0.5rem' }}>
               <span className="logo-icon">📡</span>
-              <span>Kanal<span className="gradient-text">Dizini</span></span>
+              <span>TGGrup<span className="gradient-text">Kanalları</span></span>
             </Link>
             <p>
               Türkiye&apos;nin en kapsamlı WhatsApp ve Telegram TG Grup Kanallari.
               Binlerce aktif grup ve kanala ücretsiz katılın, topluluklarla bağlantı kurun.
             </p>
+            <p style={{ marginTop: '1rem', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+              📢 Reklam &amp; Hızlı Onay İşbirlikleri için:
+              <br />
+              <a href="https://t.me/destektgkanalicom" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--telegram)', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '0.25rem', marginTop: '0.25rem' }}>
+                ✈️ @destektgkanalicom
+              </a>
+            </p>
           </div>
+
 
           <div className="footer-col">
             <div className="footer-col-title">Platform</div>

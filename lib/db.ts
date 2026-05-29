@@ -31,42 +31,53 @@ export function getAllChannels(): Channel[] {
   return channelsData as Channel[];
 }
 
-export function getChannelBySlug(slug: string): Channel | undefined {
-  return (channelsData as Channel[]).find(ch => ch.slug === slug);
+export function getChannelBySlug(slug: string, includeUnverified: boolean = false): Channel | undefined {
+  return (channelsData as Channel[]).find(
+    ch => ch.slug === slug && (includeUnverified || ch.verified)
+  );
 }
 
-export function getChannelsByCategory(categoryId: string): Channel[] {
-  return (channelsData as Channel[]).filter(ch => ch.category === categoryId);
+export function getChannelsByCategory(categoryId: string, includeUnverified: boolean = false): Channel[] {
+  return (channelsData as Channel[]).filter(
+    ch => ch.category === categoryId && (includeUnverified || ch.verified)
+  );
 }
 
-export function getChannelsByPlatform(platform: 'telegram' | 'whatsapp'): Channel[] {
-  return (channelsData as Channel[]).filter(ch => ch.platform === platform);
+export function getChannelsByPlatform(platform: 'telegram' | 'whatsapp', includeUnverified: boolean = false): Channel[] {
+  return (channelsData as Channel[]).filter(
+    ch => ch.platform === platform && (includeUnverified || ch.verified)
+  );
 }
 
-export function getFeaturedChannels(): Channel[] {
-  return (channelsData as Channel[]).filter(ch => ch.featured);
+export function getFeaturedChannels(includeUnverified: boolean = false): Channel[] {
+  return (channelsData as Channel[]).filter(
+    ch => ch.featured && (includeUnverified || ch.verified)
+  );
 }
 
-export function searchChannels(query: string): Channel[] {
+export function searchChannels(query: string, includeUnverified: boolean = false): Channel[] {
   const q = query.toLowerCase();
   return (channelsData as Channel[]).filter(ch =>
-    ch.name.toLowerCase().includes(q) ||
-    ch.description.toLowerCase().includes(q) ||
-    ch.tags.some(t => t.toLowerCase().includes(q))
+    (includeUnverified || ch.verified) && (
+      ch.name.toLowerCase().includes(q) ||
+      ch.description.toLowerCase().includes(q) ||
+      ch.tags.some(t => t.toLowerCase().includes(q))
+    )
   );
 }
 
-export function getChannelsByCity(city: string): Channel[] {
+export function getChannelsByCity(city: string, includeUnverified: boolean = false): Channel[] {
   return (channelsData as Channel[]).filter(
-    ch => ch.city.toLowerCase() === city.toLowerCase()
+    ch => ch.city.toLowerCase() === city.toLowerCase() && (includeUnverified || ch.verified)
   );
 }
 
-export function getRelatedChannels(channel: Channel, limit: number = 4): Channel[] {
+export function getRelatedChannels(channel: Channel, limit: number = 4, includeUnverified: boolean = false): Channel[] {
   return (channelsData as Channel[])
-    .filter(ch => ch.id !== channel.id && ch.category === channel.category)
+    .filter(ch => ch.id !== channel.id && ch.category === channel.category && (includeUnverified || ch.verified))
     .slice(0, limit);
 }
+
 
 // --- Category Operations ---
 export function getAllCategories(): Category[] {
